@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Chordtext</title>
+		<link rel=”stylesheet” href=”{{ url_for(‘static’, filename=’style.css’) }}”>
+	</head>
+
+	<body>
+		<h2>What's on your mind?</h2>
+		<h4> Feed me 4 lines - bonus points if you make 'em rhyme.<h4>
+
+			<form method=post action=”/results”>
+
+				<dl>
+					{{ render_field(form.text_field, cols=’30', rows=’10') }}
+				</dl>
+
+				<div>
+					<input type=submit value=’Submit review’ name=’submit_btn’>
+				</div>
+
+			</form>
+	</body>
+</html>

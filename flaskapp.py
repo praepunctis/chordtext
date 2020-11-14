@@ -28,7 +28,7 @@ def classify(document):
 
 # TextForm(): establishes the TextAreaField for input text
 class TextForm(Form):
-    chordtext = TextAreaField('', [validators.DataRequired(),validators.length(min=15)])
+    text_field = TextAreaField('', [validators.DataRequired(),validators.length(min=15)])
 
 # default route: display the text input form
 @app.route('/')
@@ -41,7 +41,7 @@ def index():
 def results():
     form = TextForm(request.form)
     if request.method == 'POST' and form.validate():
-        text_in = request.form['chordtext']
+        text_in = request.form['text_field']
         y, proba = classify(text_in)
         return render_template('results.html',content=text_in,prediction=y,probability=round(proba*100,2))
     return render_template('textform.html', form=form)
