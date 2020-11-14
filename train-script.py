@@ -12,6 +12,7 @@ import pandas as pd
 import numpy as np
 import nltk
 import sklearn
+import joblib
 from nltk.tokenize import RegexpTokenizer
 from nltk.stem.porter import PorterStemmer
 from nltk.corpus import stopwords
@@ -103,3 +104,12 @@ print("Expected sentiment: 0")
 print("Predicted sentiment: " + str(model.predict(X_test[0])))
 print("Expected probabilities: ~0.788, ~0.211")
 print("Predicted probabilities: " + str(model.predict_proba(X_test[0])))
+
+# STEP 8: save & export the model --------------------------
+
+print("")
+print("Exporting to .pkl files...")
+joblib.dump(en_stopwords,'stopwords.pkl')
+joblib.dump(model,'model.pkl')
+joblib.dump(vectorizer,'vectorizer.pkl')
+print("done")
