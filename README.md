@@ -10,7 +10,7 @@ Have you written lyrics for a song, but don't know what tune to set it to?
 
 
 
-tl;dr -- **I'm creating a web app that uses sentiment analysis to turn user-input lyrics into musical chords.**
+tl;dr -- I'm creating a web app that uses sentiment analysis to **turn user-input lyrics into musical chords.**
 
 
 Here's how I tackled the sentiment analysis ML model bit:
