@@ -15,12 +15,14 @@ import sklearn
 from nltk.tokenize import RegexpTokenizer
 from nltk.stem.porter import PorterStemmer
 from nltk.corpus import stopwords
-from sklearn.feature_extraction_text import TfidfVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
 
 # STEP 2: read ---------------------------------------------
 
 # Read in the large movie review dataset; display the first 3 lines
 df = pd.read_csv('movie_data.csv', encoding='utf-8')
+print("Loading data...\n")
 data_top = df.head(3)
 print(data_top)
 
@@ -30,6 +32,9 @@ print(data_top)
 tokenizer = RegexpTokenizer(r'\w+')
 en_stopwords = set(stopwords.words('english'))
 ps = PorterStemmer()
+
+print("")
+print("Tokenizing...")
 
 # set up helper function to clean data:
 def getStemmedReview(review):
@@ -47,10 +52,13 @@ def getStemmedReview(review):
     clean_review = ' '.join(stemmed_tokens)
     return clean_review
 
+# clean all reviews
+print("Cleaning...")
+df['review'].apply(getStemmedReview)
+
 # STEP 4: split --------------------------------------------
 
-# clean all reviews
-df['review'].apply(getStemmedReview)
+print("Splitting...")
 
 # split: 35k rows for training
 X_train = df.loc[:35000, 'review'].values
@@ -64,3 +72,25 @@ Y_test = df.loc[35000:, 'sentiment'].values
 
 # set up vectorizer from sklearn
 vectorizer = TfidfVectorizer(sublinear_tf=True, encoding='utf-8')
+
+# train on the training data
+print("Training...")
+vectorizer.fit(X_train)
+
+# after learning from training data, transform the test data
+print("Transforming...")
+X_train = vectorizer.transform(X_train)
+X_test = vectorizer.transform(X_test)
+
+# STEP 6: create the ML model ------------------------------
+
+print("Creating the model...")
+model = LogisticRegression(solver='liblinear')
+model.fit(X_train,Y_train)
+
+print("ok!")
+
+# print scores
+print("")
+print("Score on training data is: " + str(model.score(X_train,Y_train)))
+print("Score on testing data is:" + str(model.score(X_test,Y_test)))
