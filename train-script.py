@@ -92,3 +92,14 @@ print("ok!")
 print("")
 print("Score on training data is: " + str(model.score(X_train,Y_train)))
 print("Score on testing data is:" + str(model.score(X_test,Y_test)))
+
+# STEP 7: test model output --------------------------------
+
+print("")
+print("Testing a negative review...")
+
+# Sampling a negative review; let's compare expected & predicted values
+print("Expected sentiment: 0")
+print("Predicted sentiment: " + str(model.predict(X_test[0])))
+print("Expected probabilities: ~0.788, ~0.211")
+print("Predicted probabilities: " + str(model.predict_proba(X_test[0])))
