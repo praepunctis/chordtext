@@ -28,13 +28,10 @@ print(data_top)
 
 # STEP 3: clean --------------------------------------------
 
-# init Objects
+# prepare tokenizer, stopwords, stemmer objects
 tokenizer = RegexpTokenizer(r'\w+')
 en_stopwords = set(stopwords.words('english'))
 ps = PorterStemmer()
-
-print("")
-print("Tokenizing...")
 
 # set up helper function to clean data:
 def getStemmedReview(review):
@@ -52,8 +49,9 @@ def getStemmedReview(review):
     clean_review = ' '.join(stemmed_tokens)
     return clean_review
 
-# clean all reviews
-print("Cleaning...")
+# tokenize & clean all reviews
+print("")
+print("Tokenizing & cleaning...")
 df['review'].apply(getStemmedReview)
 
 # STEP 4: split --------------------------------------------
