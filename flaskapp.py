@@ -24,7 +24,7 @@ def classify(document):
     X = loaded_vec.transform([document])
     Y = loaded_model.predict(X)[0]
     proba = np.max(loaded_model.predict_proba(X))
-    return label[y], proba
+    return label[Y], proba
 
 # TextForm(): establishes the TextAreaField for input text
 class TextForm(Form):
@@ -33,7 +33,7 @@ class TextForm(Form):
 # default route: display the text input form
 @app.route('/')
 def index():
-    Form.TextForm(request.form)
+    form = TextForm(request.form)
     return render_template('textform.html',form=form)
 
 # results page: use classify() & the input to do some magic maths
