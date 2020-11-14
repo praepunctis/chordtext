@@ -1,5 +1,5 @@
 # chordtext
-*Turn text into chords with a little AI magic.*
+*Turn text into chords with a little ML magic.*
 
 ---
 
@@ -25,3 +25,4 @@ Here's how I tackled the sentiment analysis ML model bit:
   * *Andrew L. Maas, Raymond E. Daly, Peter T. Pham, Dan Huang, Andrew Y. Ng, and Christopher Potts. (2011). Learning Word Vectors for Sentiment Analysis. The 49th Annual Meeting of the Association for Computational Linguistics (ACL 2011).*
 
 * The machine learning portion of this project was guided by a tutorial called [Embedding Sentiment Analysis Model into a Web Application](https://medium.com/analytics-vidhya/embedding-sentiment-analysis-model-into-a-web-application-93b76ab6348c) by Soumya Gupta. `train-script.py` is cited appropriately. While carefully transcribing and cleaning the code, I fixed some syntax errors, import statements (after many hours of fighting Python dependencies), and authored the console outputs and all annotations within the program.
+  * Starter code © Soumya Gupta, 2019. Used in compliance with the [MIT license](https://choosealicense.com/licenses/mit/).
