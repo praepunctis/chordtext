@@ -19,9 +19,9 @@ Here's how I tackled the sentiment analysis ML model bit:
 
 
 ---
-Acknowledgements
+### Acknowledgements
 
 Citation for the 2011 ACL paper about the Large Movie Review Dataset:
-*Andrew L. Maas, Raymond E. Daly, Peter T. Pham, Dan Huang, Andrew Y. Ng, and Christopher Potts. (2011). Learning Word Vectors for Sentiment Analysis. The 49th Annual Meeting of the Association for Computational Linguistics (ACL 2011).*
+* *Andrew L. Maas, Raymond E. Daly, Peter T. Pham, Dan Huang, Andrew Y. Ng, and Christopher Potts. (2011). Learning Word Vectors for Sentiment Analysis. The 49th Annual Meeting of the Association for Computational Linguistics (ACL 2011).*
 
 The machine learning portion of this project was guided by a tutorial called *Embedding Sentiment Analysis Model into a Web Application* by [Soumya Gupta](https://medium.com/analytics-vidhya/embedding-sentiment-analysis-model-into-a-web-application-93b76ab6348c). `train-script.py` is cited appropriately. I fixed some import statements (after many hours of fighting Python dependencies), cleaned up the code, and authored the console outputs and annotations.
